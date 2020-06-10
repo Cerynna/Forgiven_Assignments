@@ -1,0 +1,130 @@
+return {
+		type = "group",
+		name = "",
+		order=1,
+		inline = true,
+		args = {
+			target = {
+				order = 1,
+				width = 0.75,
+				type = "select",
+				name = "",
+				desc = "Sélectionnez la cible à laquelle cette ligne s'applique",
+				get = "GetTarget",
+				set = "SetTarget",
+				values = function(info) return fa_target_list end,
+				sorting = function(info) return fa_targetSort_list end,
+				style = "dropdown",
+			},
+			task1 = {
+				order = 2,
+				width = 0.75,
+				type = "select",
+				name = "",
+				desc = "Ce que vous voulez faire pour cette cible",
+				get = "GetTask",
+				set = "SetTask",
+				values = function(info) return fa_task_list end,
+				sorting = function(info) return fa_taskSort_list end,
+				style = "dropdown",
+			},
+			player1 = {
+				order = 3,
+				width = 0.75,
+				type = "select",
+				name = "",
+				desc = "Who you want to do the assignment",
+				get = "GetPlayer",
+				set = "SetPlayer",
+				values = function(info) return fa_displayPlayers(_G["fa_"..info[#info-2].."_"..info[#info-1].."_task"]) end,
+				style = "dropdown",
+			},
+			task2 = {
+				order = 4,
+				width = 0.75,
+				type = "select",
+				name = "",
+				desc = "Ce que vous voulez faire pour cette cible",
+				get = "GetTask",
+				set = "SetTask",
+				values = function(info) return fa_task_list end,
+				sorting = function(info) return fa_taskSort_list end,
+				style = "dropdown",
+			},
+			player2 = {
+				order = 5,
+				width = 0.75,
+				type = "select",
+				name = "",
+				desc = "Who you want to do the assignment",
+				get = "GetPlayer",
+				set = "SetPlayer",
+				values = function(info) return fa_displayPlayers(_G["fa_"..info[#info-2].."_"..info[#info-1].."_task"]) end,
+				style = "dropdown",
+			},
+			player3 = {
+				order = 6,
+				width = 0.75,
+				type = "select",
+				name = "",
+				desc = "Who you want to do the assignment",
+				get = "GetPlayer",
+				set = "SetPlayer",
+				values = function(info) return fa_displayPlayers(_G["fa_"..info[#info-2].."_"..info[#info-1].."_task"]) end,
+				style = "dropdown",
+			},
+			player4 = {
+				order = 7,
+				width = 0.75,
+				type = "select",
+				name = "",
+				desc = "Who you want to do the assignment",
+				get = "GetPlayer",
+				set = "SetPlayer",
+				values = function(info) return fa_displayPlayers(_G["fa_"..info[#info-2].."_"..info[#info-1].."_task"]) end,
+				style = "dropdown",
+			},
+			resetRow = {
+				type = "execute",
+				name = "Reset",
+				order = 10,
+				width = 0.5,
+				func = function(info) return fa_resetAssignments(info[#info-1],info[#info-2],"all") end
+			},
+		},
+	}
+
+
+	    self.db.global["note_" .. id] = {
+        type = "group",
+        name = "note_" .. id,
+        order = id,
+        args = {
+            assignmentName = {
+                order = 0.08,
+                width = 1,
+                type = "input",
+                name = "Assignment Name",
+                desc = "Enter a name for this assignment. It will appear as the first row when reporting, and change the page name in the left hand menu.",
+                get = "GetAssignmentName",
+                set = "SetAssignmentName"
+            }
+        }
+    }
+    options.args["note_" .. id] = {
+        type = "group",
+        name = "note_" .. id,
+        order = id,
+        args = {
+            assignmentName = {
+                order = 0.08,
+                width = 1,
+                type = "input",
+                name = "Assignment Name",
+                desc = "Enter a name for this assignment. It will appear as the first row when reporting, and change the page name in the left hand menu.",
+                get = "GetAssignmentName",
+                set = "SetAssignmentName"
+            }
+        }
+    }
+
