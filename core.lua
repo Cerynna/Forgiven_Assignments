@@ -1,40 +1,62 @@
 -- Load Ace3 libraries and define addon
-Chouette_Assitante = LibStub("AceAddon-3.0"):NewAddon("Chouette_Assitante", "AceConsole-3.0", "AceEvent-3.0")
+Chouette_Assistante = LibStub("AceAddon-3.0"):NewAddon("Chouette_Assistante", "AceConsole-3.0", "AceEvent-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
 local AceConfigRegistry = LibStub("AceConfigRegistry-3.0")
 local AceSerializer = LibStub("AceSerializer-3.0")
 
 -- Set icon texture paths
-local shieldIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\INV_Shield_06.tga:0|t "
-local druidIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\ClassIcon_Druid.tga:0|t "
-local hunterIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\ClassIcon_Hunter.tga:0|t "
-local mageIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\ClassIcon_Mage.tga:0|t "
-local paladinIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\ClassIcon_Paladin.tga:0|t "
-local priestIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\ClassIcon_Priest.tga:0|t "
-local rogueIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\ClassIcon_Rogue.tga:0|t "
-local shamanIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\ClassIcon_Shaman.tga:0|t "
-local warlockIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\ClassIcon_Warlock.tga:0|t "
-local warriorIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\ClassIcon_Warrior.tga:0|t "
-local skullIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\Skull.tga:0|t "
-local crossIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\Cross.tga:0|t "
-local squareIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\Square.tga:0|t "
-local moonIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\Moon.tga:0|t "
-local triangleIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\Triangle.tga:0|t "
-local diamondIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\Diamond.tga:0|t "
-local circleIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\Circle.tga:0|t "
-local starIcon = "|TInterface\\AddOns\\Chouette_Assitante\\Textures\\Star.tga:0|t "
+local shieldIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\INV_Shield_06.tga:0|t "
+local druidIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\ClassIcon_Druid.tga:0|t "
+local hunterIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\ClassIcon_Hunter.tga:0|t "
+local mageIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\ClassIcon_Mage.tga:0|t "
+local paladinIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\ClassIcon_Paladin.tga:0|t "
+local priestIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\ClassIcon_Priest.tga:0|t "
+local rogueIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\ClassIcon_Rogue.tga:0|t "
+local shamanIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\ClassIcon_Shaman.tga:0|t "
+local warlockIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\ClassIcon_Warlock.tga:0|t "
+local warriorIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\ClassIcon_Warrior.tga:0|t "
+local skullIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\Skull.tga:0|t "
+local crossIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\Cross.tga:0|t "
+local squareIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\Square.tga:0|t "
+local moonIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\Moon.tga:0|t "
+local triangleIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\Triangle.tga:0|t "
+local diamondIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\Diamond.tga:0|t "
+local circleIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\Circle.tga:0|t "
+local starIcon = "|TInterface\\AddOns\\Chouette_Assistante\\Textures\\Star.tga:0|t "
 
 local defaultArgs = {
     configPage = {
         type = "group",
-        name = "Home",
+        name = "Générale",
         order = 0,
         args = {
             configHeading1 = {
                 type = "description",
-                name = "How to use this addon",
+                name = "Comment Utilisé la Chouette Assistante",
                 fontSize = "large",
                 order = 1
+            },
+            configLine1 = {
+                type = "header",
+                name = "",
+                order = 2
+            },
+            configDesc1 = {
+                type = "description",
+                name = "1. Cliquer sur \"Ajouter une note\"\n\n2. Dans la page dédié a la note vous pouvez la renommer\n\n3. Utilisé les liste déroulante pour affecter une cible\n\n4. Ensuite selectionnez une action (optionnel)\n\n4. Et enfin remplir a qui voulez vous affecter cette tache.\n\n5. Il est possible d'affecter plusieur actions a plusieur personnes",
+                fontSize = "medium",
+                order = 3
+            },
+            configLine3 = {
+                type = "header",
+                name = "",
+                order = 20
+            },
+            configEasterEgg = {
+                type = "description",
+                name = "N'oublier pas de faire une offrante a votre Chouette Préféré",
+                fontSize = "small",
+                order = 30
             }
         }
     },
@@ -43,15 +65,15 @@ local defaultArgs = {
         name = "Ajouter une Note",
         order = 10,
         func = function(info)
-            return Chouette_Assitante:AddNote()
+            return Chouette_Assistante:AddNote()
         end
     },
     clearNote = {
         type = "execute",
-        name = "Clear All",
+        name = "Supprimer tout les notes",
         order = 10,
         func = function(info)
-            return Chouette_Assitante:clearNote()
+            return Chouette_Assistante:clearNote()
         end
     }
 }
@@ -66,12 +88,6 @@ local TargetOptions = {
     ["{etoile}"] = starIcon .. "{etoile}",
     ["Boss"] = "Boss",
     ["Adds"] = "Adds",
-    ["Raid"] = "Raid",
-    ["Melee"] = "Melee",
-    ["Ranged"] = "Ranged",
-    ["Main-tank"] = "Main-tank",
-    ["Off-tank"] = "Off-tank",
-    ["[placeholder]"] = shieldIcon .. "[placeholder]",
     [""] = ""
 }
 local TargetOptionsSort = {
@@ -112,17 +128,17 @@ local TaskOptionsSort = {
 
 local options = {
     name = "Chouette Assitante",
-    handler = Chouette_Assitante,
+    handler = Chouette_Assistante,
     desc = "Salut les loulous",
     type = 'group',
     args = defaultArgs
 }
-function Chouette_Assitante:OnInitialize()
-    AceConfigRegistry:RegisterOptionsTable("Chouette_Assitante", options)
-    self:Print("Tape /ca pour lancer l'addon")
-    self:RegisterChatCommand("ca", "OpenFrame")
-    self:RegisterChatCommand("<3", "OpenFrame")
-    self.db = LibStub("AceDB-3.0"):New("Chouette_AssitanteDB")
+function Chouette_Assistante:OnInitialize()
+    AceConfigRegistry:RegisterOptionsTable("Chouette_Assistante", options)
+    self:Print("Tape /ca ou /<3 pour lancer l'addon")
+    self:RegisterChatCommand("ca", "CommandChat")
+    self:RegisterChatCommand("<3", "CommandChat")
+    self.db = LibStub("AceDB-3.0"):New("Chouette_AssistanteDB")
     if self.db.char.config == nil then
         self.db.char.config = {
             reportChannel = "raid",
@@ -131,26 +147,31 @@ function Chouette_Assitante:OnInitialize()
     end
 
 end
-function Chouette_Assitante:OpenFrame(input)
-    -- self:Print("OpenFrame")
-    if input == "defaults" then
-        self:Print("defaults")
+function Chouette_Assistante:CommandChat(input)
+    if input == "" then
+        self:OpenFrame()
     else
-        -- Open the addon window
-        AceConfigDialog:SetDefaultSize("Chouette_Assitante", 1400, 650)
-        AceConfigDialog:Open("Chouette_Assitante")
+        Chouette_Assistante:ReportAssign(input)
     end
 end
-function Chouette_Assitante:OnEnable()
+
+function Chouette_Assistante:OpenFrame()
+    -- Open the addon window
+    AceConfigDialog:SetDefaultSize("Chouette_Assistante", 1400, 650)
+    AceConfigDialog:Open("Chouette_Assistante")
+
+end
+
+function Chouette_Assistante:OnEnable()
     -- Called when the addon is enabled
     self:updateList(self.db.global)
 end
 
-function Chouette_Assitante:OnDisable()
+function Chouette_Assistante:OnDisable()
     -- Called when the addon is disabled
 end
 
-function Chouette_Assitante:clearNote()
+function Chouette_Assistante:clearNote()
     -- self:Print("clearNote")
     self.db:ResetDB("Default")
     options.args = {}
@@ -158,7 +179,7 @@ function Chouette_Assitante:clearNote()
     self:updateList(self.db.global)
 end
 
-function Chouette_Assitante:AddNote()
+function Chouette_Assistante:AddNote()
     -- self:Print("AddNote" .. self.db.global)
     -- self:Print("AddNote")
     local id
@@ -274,7 +295,7 @@ function Chouette_Assitante:AddNote()
     self:updateList(self.db.global)
 end
 
-function Chouette_Assitante:countNote(notes)
+function Chouette_Assistante:countNote(notes)
     -- self:Print("countNote")
     local count = 0
     if notes ~= nil then
@@ -287,7 +308,7 @@ function Chouette_Assitante:countNote(notes)
     return count
 end
 
-function Chouette_Assitante:updateList(notes)
+function Chouette_Assistante:updateList(notes)
     -- self:Print("updateList")
     if notes ~= nil then
         for i, v in pairs(notes) do
@@ -297,85 +318,85 @@ function Chouette_Assitante:updateList(notes)
 end
 
 -- Assignment name
-function Chouette_Assitante:GetAssignmentName(info)
+function Chouette_Assistante:GetAssignmentName(info)
     -- self:Print("GetAssignmentName")
     if self.db.global[info[#info - 1]] ~= nil then
         return self.db.global[info[#info - 1]].name
     end
 end
-function Chouette_Assitante:SetAssignmentName(info, value)
+function Chouette_Assistante:SetAssignmentName(info, value)
     -- self:Print("SetAssignmentName")
     self.db.global[info[#info - 1]].name = value
     self:updateList(self.db.global);
 end
 
 -- Extra instructions
-function Chouette_Assitante:GetInstructions(info)
+function Chouette_Assistante:GetInstructions(info)
     -- self:Print("GetInstructions")
     if self.db.global[info[#info - 1]] ~= nil then
         return self.db.global[info[#info - 1]][info[#info - 0]]
     end
     -- return AceSerializer:Serialize(self:createRow(1))
 end
-function Chouette_Assitante:SetInstructions(info, value)
+function Chouette_Assistante:SetInstructions(info, value)
     -- self:Print("SetInstructions")
     self.db.global[info[#info - 1]][info[#info - 0]] = value
     self:updateList(self.db.global);
 end
 
 -- Target
-function Chouette_Assitante:GetTarget(info)
+function Chouette_Assistante:GetTarget(info)
     -- self:Print("GetTarget")
     if self.db.global[info[#info - 2]] ~= nil then
         return self.db.global[info[#info - 2]][info[#info - 1]][info[#info - 0]]
     end
 end
-function Chouette_Assitante:SetTarget(info, value)
+function Chouette_Assistante:SetTarget(info, value)
     -- self:Print("SetTarget")
     self.db.global[info[#info - 2]][info[#info - 1]][info[#info - 0]] = value
     self:updateList(self.db.global);
 end
 -- Task
-function Chouette_Assitante:GetTask(info)
+function Chouette_Assistante:GetTask(info)
     -- self:Print("GetTask")
     if self.db.global[info[#info - 2]] ~= nil then
         return self.db.global[info[#info - 2]][info[#info - 1]][info[#info - 0]]
     end
     -- return AceSerializer:Serialize(self:createRow(1))
 end
-function Chouette_Assitante:SetTask(info, value)
+function Chouette_Assistante:SetTask(info, value)
     -- self:Print("SetTask")
     self.db.global[info[#info - 2]][info[#info - 1]][info[#info - 0]] = value
     self:updateList(self.db.global);
 end
 -- Task
-function Chouette_Assitante:GetPlayer(info)
+function Chouette_Assistante:GetPlayer(info)
     -- self:Print("GetPlayer")
     if self.db.global[info[#info - 2]] ~= nil then
         return self.db.global[info[#info - 2]][info[#info - 1]][info[#info - 0]]
     end
     -- return AceSerializer:Serialize(self:createRow(1))
 end
-function Chouette_Assitante:SetPlayer(info, value)
+function Chouette_Assistante:SetPlayer(info, value)
     -- self:Print("SetPlayer")
     self.db.global[info[#info - 2]][info[#info - 1]][info[#info - 0]] = value
     self:updateList(self.db.global);
 end
 -- Task
-function Chouette_Assitante:GetChannel(info)
+function Chouette_Assistante:GetChannel(info)
     -- self:Print("GetChannel")
     if self.db.char.config ~= nil then
         return self.db.char.config.reportChannel
     end
     -- return AceSerializer:Serialize(self:createRow(1))
 end
-function Chouette_Assitante:SetChannel(info, value)
+function Chouette_Assistante:SetChannel(info, value)
     -- self:Print("SetChannel")
     self.db.char.config.reportChannel = value
     self:updateList(self.db.global);
 end
 
-function Chouette_Assitante:CreateNote(index)
+function Chouette_Assistante:CreateNote(index)
     -- self:Print("CreateNote")
     return {
         type = "group",
@@ -395,13 +416,27 @@ function Chouette_Assitante:CreateNote(index)
             },
             instruction = {
                 order = 0.06,
-                width = 5,
+                width = 4,
                 type = "input",
                 -- multiline = true,
                 name = "Instruction Supplémentaire",
-                desc = "For any extra information you want to provide. It will appear as the last row when reporting.",
+                desc = "Pour ajouter plus d'information a l'attribution",
                 get = "GetInstructions",
                 set = "SetInstructions"
+            },
+            maccro = {
+                order = 0.06,
+                width = 1,
+                type = "input",
+                -- multiline = true,
+                name = "Maccro",
+                desc = "Cet commande permet d'envoyer l'attribution.",
+                get = function()
+                    return "/ca " .. index
+                end,
+                set = function(value)
+                    return value
+                end
             },
             horizontalLine2 = {
                 type = "header",
@@ -419,56 +454,56 @@ function Chouette_Assitante:CreateNote(index)
                 order = 0.2,
                 width = 0.5,
                 type = "description",
-                name = " Tache 1 ",
+                name = " Action 1 ",
                 fontSize = "medium"
             },
             player1Heading = {
                 order = 0.3,
                 width = 0.75,
                 type = "description",
-                name = " Player 1 ",
+                name = " Joueur 1 ",
                 fontSize = "medium"
             },
             task2Heading = {
                 order = 0.4,
                 width = 0.5,
                 type = "description",
-                name = " Tache 2 ",
+                name = " Action 2 ",
                 fontSize = "medium"
             },
             player2Heading = {
                 order = 0.5,
                 width = 0.75,
                 type = "description",
-                name = " Player 2 ",
+                name = " Joueur 2 ",
                 fontSize = "medium"
             },
             task3Heading = {
                 order = 0.6,
                 width = 0.5,
                 type = "description",
-                name = " Tache 3 ",
+                name = " Action 3 ",
                 fontSize = "medium"
             },
             player3Heading = {
                 order = 0.7,
                 width = 0.75,
                 type = "description",
-                name = " Player 3 ",
+                name = " Joueur 3 ",
                 fontSize = "medium"
             },
             task4Heading = {
                 order = 0.8,
                 width = 0.5,
                 type = "description",
-                name = " Tache 4 ",
+                name = " Joueur 4 ",
                 fontSize = "medium"
             },
             player4Heading = {
                 order = 0.9,
                 width = 0.75,
                 type = "description",
-                name = " Player 4 ",
+                name = " Joueur 4 ",
                 fontSize = "medium"
             },
             row1 = self:createRow(1),
@@ -488,8 +523,8 @@ function Chouette_Assitante:CreateNote(index)
             reportChannel = {
                 order = 12,
                 type = "select",
-                name = "Report to",
-                desc = "Which chat channel you want to publish the assignments in",
+                name = "Slectioner un channel",
+                desc = "Sur quel canal voulez vous que l'attribution soit faite",
                 get = "GetChannel",
                 set = "SetChannel",
                 values = {
@@ -502,11 +537,11 @@ function Chouette_Assitante:CreateNote(index)
             },
             reportAssignments = {
                 type = "execute",
-                name = "Report assignments",
-                desc = "Output the current raid assignments to the selected channel",
+                name = "Envoyer",
+                desc = "Envoie l'attribution sur le canal selectionner",
                 order = 13,
                 func = function(info)
-                    return Chouette_Assitante:ReportAssign(info)
+                    return Chouette_Assistante:ReportAssign(info[#info - 1])
                 end
             }
         }
@@ -514,18 +549,18 @@ function Chouette_Assitante:CreateNote(index)
 
 end
 
-function Chouette_Assitante:ReportAssign(info)
+function Chouette_Assistante:ReportAssign(note)
     -- self:Print("ReportAssign 0 " .. info[#info - 0])
     -- self:Print("ReportAssign 1 " .. info[#info - 1])
     if self.db.char.config.reportChannel then
-        self:Print("Envoie de l'assign " .. self.db.global[info[#info - 1]].name .. " sur le canal " ..
+        self:Print("Envoie de l'assign " .. self.db.global[note].name .. " sur le canal " ..
                        self.db.char.config.reportChannel)
-        SendChatMessage(" ------ " .. self.db.global[info[#info - 1]].name .. " ------ ",
-                        self.db.char.config.reportChannel, nil, self.db.char.config.reportChannel)
+        SendChatMessage(" ------ " .. self.db.global[note].name .. " ------ ", self.db.char.config.reportChannel, nil,
+                        self.db.char.config.reportChannel)
 
-        if self.db.global[info[#info - 1]].instruction ~= "" then
+        if self.db.global[note].instruction ~= "" then
 
-            SendChatMessage(self.db.global[info[#info - 1]].instruction, self.db.char.config.reportChannel, nil,
+            SendChatMessage(self.db.global[note].instruction, self.db.char.config.reportChannel, nil,
                             self.db.char.config.reportChannel)
 
         end
@@ -533,19 +568,19 @@ function Chouette_Assitante:ReportAssign(info)
         for i = 1, 9 do
             -- self:Print(i)
             local text = ""
-            if self.db.global[info[#info - 1]]["row" .. i].target ~= "" then
-                text = text .. "" .. self.db.global[info[#info - 1]]["row" .. i].target .. " - "
+            if self.db.global[note]["row" .. i].target ~= "" then
+                text = text .. "" .. self.db.global[note]["row" .. i].target .. " - "
             end
             for j = 1, 4 do
                 -- self:Print(j)
-                if self.db.global[info[#info - 1]]["row" .. i]["player" .. j] ~= "" then
+                if self.db.global[note]["row" .. i]["player" .. j] ~= "" then
                     if j > 1 then
                         text = text .. " - "
                     end
-                    if self.db.global[info[#info - 1]]["row" .. i]["task" .. j] ~= "" then
-                        text = text .. " " .. self.db.global[info[#info - 1]]["row" .. i]["task" .. j] .. " : "
+                    if self.db.global[note]["row" .. i]["task" .. j] ~= "" then
+                        text = text .. " " .. self.db.global[note]["row" .. i]["task" .. j] .. " : "
                     end
-                    text = text .. self.db.global[info[#info - 1]]["row" .. i]["player" .. j]
+                    text = text .. self.db.global[note]["row" .. i]["player" .. j]
                 end
                 -- self:Print(text)
             end
@@ -554,7 +589,7 @@ function Chouette_Assitante:ReportAssign(info)
     end
 end
 
-function Chouette_Assitante:createRow(order)
+function Chouette_Assistante:createRow(order)
     -- self:Print("createRow")
     return {
         type = "group",
@@ -684,14 +719,14 @@ function Chouette_Assitante:createRow(order)
                 order = 10,
                 width = 0.5,
                 func = function(info)
-                    return Chouette_Assitante:resetAssignments(info[#info - 2], info[#info - 1], "all")
+                    return Chouette_Assistante:resetAssignments(info[#info - 2], info[#info - 1], "all")
                 end
             }
         }
     }
 end
 
-function Chouette_Assitante:resetAssignments(note, row, arg3)
+function Chouette_Assistante:resetAssignments(note, row, arg3)
     -- self:Print(row)
     -- self:Print(note)
     -- self:Print(arg3)

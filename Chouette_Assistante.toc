@@ -1,0 +1,10 @@
+## Interface: 11340
+## Title:|cffe9b0ff<Chouette Assistante>|r
+## Version : 1.0.0
+## Notes: Une Superbe Chouette qui vous aide dans l'organisation de vos raid.
+## Author: Hystérias
+
+## SavedVariables: Chouette_AssistanteDB
+
+embeds.xml
+core.lua
